@@ -1,4 +1,17 @@
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+
 const Stories = () => {
+
+  const { id } = useParams();
+
+  useEffect(() => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView();
+    }
+  }, [id]);
+  
   return (
     <>
       <section className="stories" id="stories">

@@ -1,4 +1,16 @@
-const Tours = ({cardEfect,changedCard}) => {
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+
+const Tours = ({ cardEfect, changedCard }) => {
+  const { id } = useParams();
+
+  useEffect(() => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView();
+    }
+  }, [id]);
+
   return (
     <>
       <section className="popular-tours" id="tours">
@@ -13,10 +25,14 @@ const Tours = ({cardEfect,changedCard}) => {
               />
               <h1 className="tour-name"></h1>
               <ul className="card-list"></ul>
-              <button className="navigation-button" onClick={changedCard}>Más info &gt;&gt;</button>
+              <button className="navigation-button" onClick={changedCard}>
+                Más info &gt;&gt;
+              </button>
             </div>
             <div className={`back-side center`}>
-              <button className="navigation-button" onClick={changedCard}>&lt;&lt; Regresar</button>
+              <button className="navigation-button" onClick={changedCard}>
+                &lt;&lt; Regresar
+              </button>
               <h3 className="tour-price"></h3>
               <button className="card-button-pdf">
                 <a href="../pdfs/RUTADIADEMUERTOS.pdf">Descargar PDF</a>

@@ -1,19 +1,33 @@
-import { HashRouter, Routes, Route } from "react-router-dom"
-import Home from "./pages/Home"
-import Benefits from "./pages/Benefits"
+import { HashRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
 
-
+import Home from "./pages/Home";
+import Benefits from "./pages/Benefits";
+import NavBar from "./components/navBar";
+import Footer from "./components/Footer";
+import Tours from "./components/Tours";
+import Stories from "./components/Stories";
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false);
 
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
   return (
-      <HashRouter>
+    <HashRouter>
+      <div className={`container ${menuOpen ? "change" : ""}`}>
+        <NavBar menuOpen={menuOpen} toggleMenu={toggleMenu} />
         <Routes>
-          <Route path="/" element={<Home/>}/>
-          <Route path="/beneficios" element={<Benefits/>}/>
+          <Route path="/" element={<Home />} />
+          <Route path="/tours/:id" element={<Tours />} />
+          <Route path="/beneficios" element={<Benefits />} />
+          <Route path="/opiniones/:id" element={<Stories />} />
         </Routes>
-      </HashRouter>      
-      )
+        <Footer />
+      </div>
+    </HashRouter>
+  );
 }
 
-export default App
+export default App;

@@ -1,7 +1,7 @@
 
 //navigaation colors
 
-export const colors = [
+export const navigation = [
     
     {
         href: '/',
@@ -9,7 +9,7 @@ export const colors = [
         color: "#6495ed",
     },
     {
-        href: '#tours',
+        href: '/tours/tours',
         name: 'Tours',
         color: "#7fffd4",
     },
@@ -19,7 +19,7 @@ export const colors = [
         color: "#ffa07a",
     },
     {
-        href: '/opiniones',
+        href: '/opiniones/stories',
         name: 'Opiniones',
         color: "#f08080",
     }
