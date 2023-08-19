@@ -757,6 +757,10 @@
       width: 91%;
     }
   }
+
+  .tawkto{
+    padding: 2rem;
+  }
   
   @media (max-width: 800px) {
     .navigation-button {
