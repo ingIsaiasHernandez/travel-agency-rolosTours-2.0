@@ -9,6 +9,7 @@ import NavBar from "./components/navBar";
 import Footer from "./components/Footer";
 import Tours from "./components/Tours";
 import Stories from "./components/Stories";
+import LogIn from "./pages/LogIn";
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -31,6 +32,7 @@ function App() {
           <Route path="/tours/:id" element={<Tours />} />
           <Route path="/beneficios" element={<Benefits />} />
           <Route path="/opiniones/:id" element={<Stories />} />
+          <Route path="/login" element={<LogIn />} />
         </Routes>
         <Footer />
       </div>
