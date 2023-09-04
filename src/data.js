@@ -25,4 +25,17 @@ export const navigation = [
     }
 ];
 
-    
+
+export const toursList = [
+    {
+        numero: 1,
+        titulo: 'Viaje a la playa',
+        imagen: 'https://picsum.photos/200',
+      },
+      {
+        numero: 2,
+        titulo: 'Viaje a la montaña',
+        imagen: 'https://picsum.photos/200',
+      },
+    // Agrega más datos según tus necesidades
+  ];

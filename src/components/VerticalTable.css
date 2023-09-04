@@ -1,0 +1,77 @@
+.tabla-vertical {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.viaje {
+  border: 1px solid #ccc;
+  background-color: #f5f5f5;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.titulo {
+  font-weight: bold;
+  font-size: 2rem;
+  margin: 10px;
+}
+
+.numero-viaje {
+  font-weight: bold;
+  margin: 10px;
+}
+
+.imagen-viaje {
+  max-width: 70%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.delete-btn {
+  width: 5rem;
+  height: 5rem;
+  margin: 1rem;
+  border-radius: 50%;
+  background-color: red;
+  color: #fff;
+  border-color: transparent;
+}
+
+.update-btn {
+  width: 7rem;
+  height: 6rem;
+  margin: 1rem;
+  border-radius: 1rem 0 1rem 1rem;
+  background-color: green;
+  border-color: transparent;
+  color: #fff;
+
+}
+.boton:hover {
+  background-color: #0056b3;
+}
+
+/* Media query para dispositivos con un ancho mínimo de 650px */
+@media screen and (min-width: 650px) {
+  .tabla-vertical {
+    display: table;
+  }
+
+  .viaje {
+    display: table-row;
+  }
+
+  .titulo,
+  .numero-viaje,
+  .imagen-viaje,
+  .boton {
+    display: table-cell;
+    padding: 10px;
+  }
+
+  .imagen-viaje {
+    max-width: none;
+    width: 3rem; /* Ancho fijo para la imagen en dispositivos más grandes */
+  }
+}

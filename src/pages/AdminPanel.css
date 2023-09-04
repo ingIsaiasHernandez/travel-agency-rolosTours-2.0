@@ -1,0 +1,202 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(33, 150, 243, 10); /* Opacidad del fondo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+/*Sign In Form*/
+.post-form {
+  background-color: #fff;
+  padding: 1rem;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  z-index: 1001; 
+}
+
+/*Background Img*/
+.post-back-img {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  background: url('https://fastly.picsum.photos/id/15/2500/1667.jpg?hmac=Lv03D1Y3AsZ9L2tMMC1KQZekBVaQSDc1waqJ54IHvo4')no-repeat center center;
+  background-size: cover;
+}
+
+.layer {
+  background-color: rgba(33, 150, 243, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.post-in-text {
+  top: 175px;
+  position: absolute;
+  z-index: 1002;
+}
+
+h2 {
+  font-size: 25px;
+  text-transform: uppercase;
+  display: inline-block;
+  font-weight: 300;
+  margin: 4rem 0;
+}
+
+.point {
+  position: absolute;
+  z-index: 1;
+  color: #fff;
+  top: 235px;
+  padding-left: 50px;
+  font-size: 20px;
+}
+
+/*form-section*/
+.post-form-section {
+  padding: 0 5rem;
+
+}
+
+.error-message {
+  font-size: 2rem;
+  color: red;
+}
+
+
+.mdl-textfield__input {
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, .12);
+  display: block;
+  font-size: 16px;
+  font-family: "Helvetica", "Arial", sans-serif;
+  margin: 0;
+  padding: 4px 0;
+  width: 100%;
+  background: 0 0;
+  text-align: left;
+  color: inherit;
+}
+
+.mdl-textfield--floating-label .mdl-textfield__label {
+  transition-duration: .2s;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+}
+
+.mdl-checkbox__input{
+  margin: 3rem 1rem;
+}
+
+.mdl-textfield__label {
+  bottom: 0;
+  color: rgba(0, 0, 0, .26);
+  font-size: 16px;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  display: block;
+  top: 24px;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.mdl-textfield__label:after {
+  background-color: rgb(33, 150, 243);
+  bottom: 20px;
+  content: '';
+  height: 2px;
+  left: 45%;
+  position: absolute;
+  transition-duration: .2s;
+  transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  visibility: hidden;
+  width: 10px;
+}
+
+/*sign-out-btn*/
+
+.new-tour-btn {
+  width: 65%;
+  height: 75px;
+  margin: 10rem auto;
+  border-radius: 1rem;
+  background-color: rgba(33, 150, 243, 1);
+  border-color: transparent;
+}
+
+.create-btn {
+  width: 7rem;
+  height: 3rem;
+  border-radius: 4rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1rem;
+  z-index: 1002;
+  background-color: white;
+  border-color: transparent;
+
+}
+
+/* .create-btn {
+  width: 7rem;
+  height: 5rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 1rem;
+  z-index: 1002;
+  background-color: white;
+} */
+
+.log-out-btn {
+  width: 100%;
+  height: 75px;
+  margin: 1rem auto;
+  position: relative;
+  background-color: rgba(33, 150, 243, 1);
+  border-color: transparent;
+}
+
+
+
+.btn-text {
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+
+@media (min-width: 650px) {
+  .post-form {
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 5rem;
+    border-radius: 0.5rem;
+  }
+  .log-out-btn {
+   
+    margin: 1rem auto;
+   
+  }
+  
+  .post-form-section {
+    padding: 10rem 3.2rem;
+
+  
+  }
+  .new-tour-btn {
+    max-width: 15rem;
+  }
+}
