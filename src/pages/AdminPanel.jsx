@@ -1,36 +1,93 @@
 import { useState } from "react";
-import { signOut } from "firebase/auth"
 import { useNavigate } from "react-router-dom";
 
-import { FaReply } from "react-icons/fa";
-
+// Styles
+import { FaReply, FaPlus } from "react-icons/fa";
 import "./AdminPanel.css";
+
+// Components
 import VerticalTable from "../components/VerticalTable";
+
+// Firebase services
+import { getAuth, signOut } from "firebase/auth"
+import { db, storage } from "../firebase";
+import { Timestamp, addDoc, collection} from "firebase/firestore";
+import {  getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
 const AdminPanel = () => {
 
+  const auth = getAuth();
   const navigate = useNavigate();
 
   const [newTour, setNewTour] = useState(false);
-  const [title, setTitle] = useState("");
-  const [image, setImage] = useState("");
-  const [document, setDocument] = useState("");
-
   const handleNewTour = () => {
     setNewTour(!newTour);
   };
 
+  // salir de sesion con signOut de firebase
+  const onSignOut = () => {
+    signOut(auth).then(() => {
+      console.log("sesion cerrada");
+      navigate("/");
+    }).catch((error) => {
+      console.log(error);
+    });
+  }
 
-  async function onSubmit(event) {
-    event.preventDefault();
-    try {
-      await signOut();
-      console.log("salió de la cuenta")
-      navigate("/login");
-    } catch (error) {
-      console.log(error.message)
+  const [data, setData] = useState({
+    title: "",
+    image: null,
+    document: null
+  });
+
+  const handdleChange = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value })
+  }
+
+  const handdleImageChange = (e) => {
+    if (e.target.files[0]) {
+      setData({ ...data, image: e.target.files[0] })
     }
   }
+
+  const handdleDocumentChange = (e) => {
+    if (e.target.files[0]) {
+      setData({ ...data, document: e.target.files[0] })
+    }
+  }
+
+  const handdleAddTour = async (e) => {
+    e.preventDefault();
+  
+    // Subir imagen a Storage
+    const imageRef = ref(storage, `images/${data.image.name}`);
+    await uploadBytes(imageRef, data.image);
+    const imageUrl = await getDownloadURL(imageRef);
+  
+    // Subir documento a Storage
+    const documentRef = ref(storage,`documents/${data.document.name}`);
+    await uploadBytes(documentRef, data.document);
+    const documentUrl = await getDownloadURL(documentRef);
+  
+    // Agregar viaje a Firestore
+    const toursRef = collection(db, "tours");
+    await addDoc(toursRef, {
+      title: data.title,
+      imageUrl: imageUrl,
+      documentUrl: documentUrl,
+      createdAt: Timestamp.fromDate(new Date())
+    });
+  
+    // Limpiar formulario
+    setData({
+      title: "",
+      image: null,
+      document: null
+    });
+  
+    
+  };
+
   return (
     <section className="popular-tours">
 
@@ -39,9 +96,17 @@ const AdminPanel = () => {
 
       <button
         className="new-tour-btn center mdl-button mdl-button--raised mdl-button--colored"
+        onClick={onSignOut}>
+        <span className="btn-text">
+          Sign Out &nbsp; <FaReply />
+        </span>
+      </button>
+
+      <button
+        className="new-tour-btn center mdl-button mdl-button--raised mdl-button--colored"
         onClick={handleNewTour}>
         <span className="btn-text">
-          Nuevo Tour &nbsp; &nbsp; +
+          Nuevo Tour &nbsp; <FaPlus />
         </span>
       </button>
 
@@ -50,7 +115,7 @@ const AdminPanel = () => {
           <div className="post-form">
             <div className="post-back-img">
               <button
-                className="create-btn  mdl-button mdl-button--raised mdl-button--colored"
+                className="return-btn  mdl-button mdl-button--raised mdl-button--colored"
                 onClick={handleNewTour}>
                 <span style={{ color: "rgba(33, 150, 243, 1)" }}>Salir</span>   <FaReply style={{ color: "rgba(33, 150, 243, 1)" }} />
               </button>
@@ -60,61 +125,42 @@ const AdminPanel = () => {
               <div className="layer"></div>
             </div>
             <div className="post-form-section">
-              <h2 className="center">Postear nuevo viaje</h2>
+              <h1 className="post-title center">Postear nuevo viaje</h1>
 
-
-              <form onSubmit={onSubmit}>
+              <form onSubmit={handdleAddTour}>
                 <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                   <input
                     className="mdl-textfield__input"
                     type="text"
-                    placeholder="Tiluto del viaje"
-                    name="text"
-                    value={title}
-                    onChange={(event) => setTitle(event.target.value)}
-
+                    placeholder="Titulo del viaje"
+                    name="title"
+                    value={data.title}
+                    onChange={(e) => handdleChange(e)}
                   />
                 </div>
                 <br />
                 <br />
                 <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                   <input
-                    pattern=".{8,}"
-                    className="mdl-textfield__input"
-                    type="password"
-                    placeholder="Imagen del viaje"
-                    name="password"
-                    value={image}
-                    onChange={(event) => setImage(event.target.value)}
-
+                    type="file"
+                    onChange={(e) => handdleImageChange(e)}
                   />
+
                   <br />
                   <br />
                 </div>
                 <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                   <input
-                    pattern=".{8,}"
-                    className="mdl-textfield__input"
-                    type="password"
-                    placeholder="PDF del viaje"
-                    name="password"
-                    value={document}
-                    onChange={(event) => setDocument(event.target.value)}
-
+                    type="file"
+                    onChange={(e) => handdleDocumentChange(e)}
                   />
+
+                  <br />
+                  <br />
                 </div>
                 <br />
-
-
-                {/* <span className="keep-text mdl-checkbox__label">
-              mantenerme logeado
-            </span>
-            {
-              loginError && <span className="center error-message">{loginError}</span>
-
-            } */}
                 <button
-                  type="submit "
+                  type="submit"
                   className="log-out-btn center mdl-button mdl-button--raised mdl-button--colored"
                 >
                   <span className="btn-text">
@@ -127,9 +173,12 @@ const AdminPanel = () => {
         </div>
       }
 
-      <div >
+      <div>
+
         <h1 className="popular-tours-heading">Lista de viajes</h1>
-        <VerticalTable />
+
+        <VerticalTable/> 
+
       </div>
 
     </section>
