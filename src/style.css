@@ -367,57 +367,40 @@ html {
 
 .cards-wrapper {
   display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
+  border: 0.1rem solid var(--light-grey-color);
+    border-radius: 1rem;
+    background-color: var(--white-color);
 }
 
 .card {
-  width: 55rem;
-  position: relative;
+  width: 100%;
+  padding: 2rem;
   perspective: 150rem;
 }
 
 .card-image {
   width: 100%;
-  border-radius: 0.3rem 0.3rem 0 0;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
 }
 
-.front-side {
-  text-align: center;
-  background-color: var(--white-color);
-  border-radius: 0.3rem;
-  position: relative;
-  z-index: 10;
-  opacity: 0.9;
-  transition: opacity 0.4s, transform 0.4s, box-shadow 0.4s;
-}
-
-.change>.front-side {
-  transform: translateZ(-5rem) translateX(3rem);
-  box-shadow: 0 2rem 4rem #777;
-  opacity: 0.5;
-  z-index: 0;
-}
 
 .tour-name {
-  font-size: 2.5rem;
+  font-size: 2.4rem;
   font-weight: 700;
   text-transform: uppercase;
-  position: absolute;
-  top: 67%;
-  right: 1.5rem;
-  color: var(--white-color);
-  text-shadow: 0 0 1rem #000;
+  margin: 1rem auto 0 auto;
+  text-align: left;
+  color: var(--primary-color);
 }
 
-.tour-name2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  position: absolute;
-  top: 61%;
-  right: 1.5rem;
-  color: var(--white-color);
-  text-shadow: 0 0 1rem #000;
+.tour-name-subtitle {
+  font-size: 1.6rem;
+  margin: 0 auto;
+  text-align: left;
+  color: var(--grey-color);
 }
 
 .card-list {
@@ -435,19 +418,6 @@ html {
   padding-bottom: 1.5rem;
 }
 
-.back-side {
-  position: absolute;
-  top: 0;
-  background-color: var(--primary-color);
-  width: 100%;
-  height: 100%;
-  border-radius: 0.3rem;
-  box-shadow: 0 2rem 4rem #777;
-  flex-direction: column;
-  transform: translateZ(-5rem) translateX(3rem);
-  opacity: 0.5;
-  transition: opacity 0.4s, transform 0.4s, box-shadow 0.4s;
-}
 
 .change>.back-side {
   transform: translateZ(0) translateX(0);
@@ -462,43 +432,14 @@ html {
   margin-bottom: 3rem;
 }
 
-.card-button-pdf {
-  margin: 2rem;
-  color: black;
-  background-color: red;
-  border: none;
-  font-size: 2.5rem;
-  padding: 1rem 2rem;
-  letter-spacing: 0.2rem;
-  border-radius: 5rem;
-  cursor: pointer;
-}
-
-.card-button-whats {
-  margin: 2rem;
-  color: white;
-  background-color: green;
-  border: none;
-  font-size: 2.5rem;
-  padding: 1rem 2rem;
-  letter-spacing: 0.2rem;
-  border-radius: 5rem;
-  border-color: black;
-  cursor: pointer;
-}
-
-
-
 .navigation-button {
-  position: absolute;
-  bottom: 0.5rem;
-  right: 7rem;
-  padding: 0.5rem 14rem;
-  background-color: rgba(255, 255, 255, 0.8);
-  color: var(--light-grey-color);
-  border-radius: 0.3rem;
+  margin: 3rem auto;
+  padding: 1.5rem;
+  border-radius: 3rem;
+  background-color: var(--primary-color);
+  color: var(--white-color);
   border: none;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.2rem;
@@ -688,14 +629,6 @@ html {
 
 @media (max-width: 1200px) {
 
-  .cards-wrapper {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .card {
-    margin: 3rem 0;
-  }
 
   .story-bg {
     width: 85%;
@@ -704,13 +637,6 @@ html {
 
 @media (max-width: 1000px) {
 
-  .navigation-button {
-    bottom: 0.5rem;
-    right: 22rem;
-    padding: 0.5rem 14rem;
-    font-size: 2.1rem;
-
-  }
 
 
   .nav-list {
@@ -760,29 +686,13 @@ html {
     margin: 0 1rem;
   }
 
-  .tour-name {
-    top: 75%;
-  }
-
-  .tour-name2 {
-    top: 75%;
-  }
-
-  .card {
-    width: 91%;
-  }
+ 
 }
 
 
 
 @media (max-width: 800px) {
-  .navigation-button {
-    bottom: 0.5rem;
-    right: 18rem;
-    padding: 0.5rem 7rem;
-
-
-  }
+ 
 
   .about-us-heading {
     font-size: 5rem;
@@ -805,30 +715,12 @@ html {
     margin: 1rem 0;
   }
 
-  .tour-name {
-    top: 70%;
-  }
 
-  .tour-name2 {
-    top: 70%;
-  }
-
-
-
-  .card {
-    width: 91%;
-  }
 }
 
 @media (max-width: 650px) {
 
-  .navigation-button {
-    bottom: 0.5rem;
-    right: 15rem;
-    padding: 0.5rem 7rem;
-
-
-  }
+  
 
   .container {
     margin: 0;
@@ -861,17 +753,7 @@ html {
   }
 
 
-  .tour-name {
-    top: 70%;
-  }
 
-  .tour-name2 {
-    top: 64%;
-  }
-
-  .card {
-    width: 91%;
-  }
 
 }
 
@@ -903,26 +785,6 @@ html {
     z-index: 10;
   }
 
-  .tour-name {
-    top: 61%;
-  }
-
-  .tour-name2 {
-    top: 52%;
-  }
-
-  .card {
-    width: 91%;
-  }
-
-  .navigation-button {
-    bottom: 0.3rem;
-    right: 4.5rem;
-    padding: 0.5rem 7rem;
-    font-family: 1.5rem;
-
-
-  }
 
   html {
     font-size: 45%;

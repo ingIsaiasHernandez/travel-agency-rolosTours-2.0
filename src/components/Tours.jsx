@@ -3,6 +3,12 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { db } from "../firebase";
 
+import { FaFilePdf } from "react-icons/fa";
+import { getDownloadURL, getStorage, ref } from "firebase/storage";
+
+
+const storage = getStorage();
+
 const Tours = ({ cardEfect, changedCard }) => {
   const { id } = useParams();
   const [tours, setTours] = useState([]);
@@ -23,11 +29,22 @@ const Tours = ({ cardEfect, changedCard }) => {
         ...doc.data(),
       }));
       setTours(toursList);
-      
+
     }
     fetchData();
   }, []);
 
+
+  const downloadDocument = (url) => {
+    const storageRef = ref(storage, url);
+    getDownloadURL(storageRef)
+      .then((downloadURL) => {
+        window.open(downloadURL, "_blank");
+      })
+      .catch((error) =>{
+        console.error(error);
+      });
+  }
 
   return (
     <>
@@ -43,13 +60,12 @@ const Tours = ({ cardEfect, changedCard }) => {
                     alt={`La imagen de ${tour.title}`}
                     className="card-image"
                   />
-                  <h1 className="tour-name">hola</h1>
-                  <ul className="card-list"></ul>
-                  <button className="navigation-button" onClick={changedCard}>
-                    Más info &gt;&gt;
+                  <h1 className="tour-name">{tour.title}</h1>
+                  <h1 className="tour-name-subtitle">fecha: {tour.createdAt.toDate().toLocaleDateString()}</h1>
+                  <button className="navigation-button left" onClick={() => downloadDocument(tour.documentUrl)}>Detalles del viaje <FaFilePdf style={{ color: "white" }} />
                   </button>
                 </div>
-                <div className={`back-side center`}>
+                {/* <div className={`back-side center`}>
                   <button className="navigation-button" onClick={changedCard}>
                     &lt;&lt; Regresar
                   </button>
@@ -62,7 +78,7 @@ const Tours = ({ cardEfect, changedCard }) => {
                       Whatsapp
                     </a>
                   </button>
-                </div>
+                </div> */}
               </div>
             ))
           }
