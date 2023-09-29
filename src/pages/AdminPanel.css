@@ -132,6 +132,21 @@ h2 {
   visibility: hidden;
   width: 10px;
 }
+.custom-file{
+  margin: 2rem 0;
+}
+.custom-file-label {
+  background-color: rgba(33, 150, 243, 1);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+.custom-file-input input[type="file"]:focus + .custom-file-label {
+  outline: 1px solid rgba(33, 150, 243, 1);
+}
 
 /*sign-out-btn*/
 

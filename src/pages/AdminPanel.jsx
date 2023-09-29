@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 // Styles
-import { FaReply, FaPlus } from "react-icons/fa";
+import { FaReply, FaPlus, FaFilePdf, FaFileImage } from "react-icons/fa";
+import { BsFillSendPlusFill } from "react-icons/bs";
 import "./AdminPanel.css";
 
 // Components
@@ -11,8 +12,8 @@ import VerticalTable from "../components/VerticalTable";
 // Firebase services
 import { getAuth, signOut } from "firebase/auth"
 import { db, storage } from "../firebase";
-import { Timestamp, addDoc, collection} from "firebase/firestore";
-import {  getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { Timestamp, addDoc, collection } from "firebase/firestore";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
 const AdminPanel = () => {
 
@@ -58,17 +59,17 @@ const AdminPanel = () => {
 
   const handdleAddTour = async (e) => {
     e.preventDefault();
-  
+
     // Subir imagen a Storage
     const imageRef = ref(storage, `images/${data.image.name}`);
     await uploadBytes(imageRef, data.image);
     const imageUrl = await getDownloadURL(imageRef);
-  
+
     // Subir documento a Storage
-    const documentRef = ref(storage,`documents/${data.document.name}`);
+    const documentRef = ref(storage, `documents/${data.document.name}`);
     await uploadBytes(documentRef, data.document);
     const documentUrl = await getDownloadURL(documentRef);
-  
+
     // Agregar viaje a Firestore
     const toursRef = collection(db, "tours");
     await addDoc(toursRef, {
@@ -77,15 +78,15 @@ const AdminPanel = () => {
       documentUrl: documentUrl,
       createdAt: Timestamp.fromDate(new Date())
     });
-  
+
     // Limpiar formulario
     setData({
       title: "",
       image: null,
       document: null
     });
-  
-    
+
+
   };
 
   return (
@@ -140,31 +141,41 @@ const AdminPanel = () => {
                 </div>
                 <br />
                 <br />
-                <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label custom-file">
                   <input
                     type="file"
+                    id="image-input"
                     onChange={(e) => handdleImageChange(e)}
+                    style={{ display: "none" }}
                   />
+                  <label htmlFor="image-input" className="custom-file-label">
+                    Subir imagen <FaFileImage />
 
+                  </label>
                   <br />
                   <br />
                 </div>
-                <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+
+                <div className="mdl-textfield mdl-js-textfield mdl-textfield--floating-label custom-file">
                   <input
                     type="file"
+                    id="document-input"
                     onChange={(e) => handdleDocumentChange(e)}
+                    style={{ display: "none" }}
                   />
+                  <label htmlFor="document-input" className="custom-file-label">
+                    Subir documento <FaFilePdf/>
+                  </label>
 
                   <br />
                   <br />
                 </div>
-                <br />
                 <button
                   type="submit"
                   className="log-out-btn center mdl-button mdl-button--raised mdl-button--colored"
                 >
                   <span className="btn-text">
-                    Crear
+                    Crear <BsFillSendPlusFill style={{margin: "0 1rem"}}/>
                   </span>
                 </button>
               </form>
@@ -177,7 +188,7 @@ const AdminPanel = () => {
 
         <h1 className="popular-tours-heading">Lista de viajes</h1>
 
-        <VerticalTable/> 
+        <VerticalTable />
 
       </div>
 
