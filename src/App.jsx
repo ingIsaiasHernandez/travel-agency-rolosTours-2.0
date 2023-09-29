@@ -5,7 +5,7 @@ import TawkMessengerReact from '@tawk.to/tawk-messenger-react';
 
 import Home from "./pages/Home";
 import Benefits from "./pages/Benefits";
-import NavBar from "./components/navBar";
+import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 import Tours from "./components/Tours";
 import Stories from "./components/Stories";
