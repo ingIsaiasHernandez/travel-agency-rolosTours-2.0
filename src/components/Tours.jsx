@@ -6,10 +6,11 @@ import { db } from "../firebase";
 import { FaFilePdf } from "react-icons/fa";
 import { getDownloadURL, getStorage, ref } from "firebase/storage";
 
-
 const storage = getStorage();
 
-const Tours = ({ cardEfect, changedCard }) => {
+import PropTypes from "prop-types";
+
+const Tours = ({ cardEffect }) => {
   const { id } = useParams();
   const [tours, setTours] = useState([]);
 
@@ -29,11 +30,9 @@ const Tours = ({ cardEfect, changedCard }) => {
         ...doc.data(),
       }));
       setTours(toursList);
-
-    }
+    };
     fetchData();
   }, []);
-
 
   const downloadDocument = (url) => {
     const storageRef = ref(storage, url);
@@ -44,16 +43,16 @@ const Tours = ({ cardEfect, changedCard }) => {
       .catch((error) => {
         console.error(error);
       });
-  }
+  };
 
   return (
     <>
       <section className="popular-tours" id="tours">
         <h1 className="popular-tours-heading">Tours</h1>
         <div className="cards-wrapper">
-          {
-            Array.isArray(tours) && tours.map((tour, id) => (
-              <div key={id} className={`card ${cardEfect ? "change" : ""}`}>
+          {Array.isArray(tours) &&
+            tours.map((tour, id) => (
+              <div key={id} className={`card ${cardEffect ? "change" : ""}`}>
                 <div className={`front-side`}>
                   <img
                     src={tour.imageUrl}
@@ -61,8 +60,14 @@ const Tours = ({ cardEfect, changedCard }) => {
                     className="card-image"
                   />
                   <h1 className="tour-name">{tour.title}</h1>
-                  <h1 className="tour-name-subtitle">fecha: {tour.createdAt.toDate().toLocaleDateString()}</h1>
-                  <button className="navigation-button left" onClick={() => downloadDocument(tour.documentUrl)}>Detalles del viaje <FaFilePdf style={{ color: "white" }} />
+                  <h1 className="tour-name-subtitle">
+                    fecha: {tour.createdAt.toDate().toLocaleDateString()}
+                  </h1>
+                  <button
+                    className="navigation-button left"
+                    onClick={() => downloadDocument(tour.documentUrl)}
+                  >
+                    Detalles del viaje <FaFilePdf style={{ color: "white" }} />
                   </button>
                 </div>
                 {/* <div className={`back-side center`}>
@@ -80,14 +85,16 @@ const Tours = ({ cardEfect, changedCard }) => {
                   </button>
                 </div> */}
               </div>
-            ))
-          }
-
-
+            ))}
         </div>
       </section>
     </>
   );
 };
+
+Tours.propTypes = {
+  cardEffect: PropTypes.bool.isRequired,
+};
+
 
 export default Tours;
