@@ -17,7 +17,7 @@ const Stories = () => {
       <section className="stories" id="stories">
         <div className="video-container">
           <video className="bg-video" autoPlay muted loop>
-            <source src="../assets/images/video.mp4" type="video/mp4" />
+            <source src="/img/video.mp4" type="video/mp4" />
           </video>
         </div>
         <h1 className="about-us-heading">Opiniones</h1>
@@ -25,7 +25,7 @@ const Stories = () => {
           <div className="story-bg">
             <div className="story">
               <img
-                src="../assets/images/story-img-1.jpg"
+                src="img/story-img-1.jpg"
                 alt="Customer image"
                 className="story-image"
               />
@@ -45,7 +45,7 @@ const Stories = () => {
           <div className="story-bg">
             <div className="story">
               <img
-                src="../assets/images/story-img-2.jpg"
+                src="img/story-img-2.jpg"
                 alt="Customer image"
                 className="story-image"
               />
@@ -63,7 +63,7 @@ const Stories = () => {
           <div className="story-bg">
             <div className="story">
               <img
-                src="../public/img/story-img-3.jpg"
+                src="img/story-img-3.jpg"
                 alt="Customer image"
                 className="story-image"
               />
@@ -81,13 +81,13 @@ const Stories = () => {
           <div className="story-bg">
             <div className="story">
               <img
-                src="../public/img/facebook.png"
+                src="img/facebook.png"
                 alt="Customer image"
                 className="story-image"
               />
               <div className="story-text">
                 <h1 className="story-heading">
-                  <a href="https://www.facebook.com/LOSROLOTOURS/reviews/?ref=page_internal">
+                  <a href="https://www.facebook.com/LOSROLOTOURS/reviews">
                     Ver más comentarios...
                   </a>
                 </h1>
