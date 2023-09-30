@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 
+import PropTypes from "prop-types";
 import "../style.css";
 
 import { navigation } from "../data";
@@ -47,6 +48,11 @@ const NavBar = ({ menuOpen, toggleMenu }) => {
       </div>
     </>
   );
+};
+
+NavBar.propTypes = {
+  menuOpen: PropTypes.bool.isRequired,
+  toggleMenu: PropTypes.func.isRequired,
 };
 
 export default NavBar;

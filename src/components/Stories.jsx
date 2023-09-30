@@ -17,7 +17,7 @@ const Stories = () => {
       <section className="stories" id="stories">
         <div className="video-container">
           <video className="bg-video" autoPlay muted loop>
-            <source src="../public/img/video.mp4" type="video/mp4" />
+            <source src="../assets/images/video.mp4" type="video/mp4" />
           </video>
         </div>
         <h1 className="about-us-heading">Opiniones</h1>
@@ -25,7 +25,7 @@ const Stories = () => {
           <div className="story-bg">
             <div className="story">
               <img
-                src="../public/img/story-img-1.jpg"
+                src="../assets/images/story-img-1.jpg"
                 alt="Customer image"
                 className="story-image"
               />
@@ -45,7 +45,7 @@ const Stories = () => {
           <div className="story-bg">
             <div className="story">
               <img
-                src="../public/img/story-img-2.jpg"
+                src="../assets/images/story-img-2.jpg"
                 alt="Customer image"
                 className="story-image"
               />

@@ -5,7 +5,7 @@ const Benefits = () => {
     <section className="benefits" id="#Beneficios">
        <div className="benefit-video-container">
             <video className="bg-video" autoPlay muted loop>
-                <source src="../public/img/video2.mp4" type="video/mp4" />
+                <source src="../assets/imgages/video2.mp4" type="video/mp4" />
             </video>
         </div> 
 

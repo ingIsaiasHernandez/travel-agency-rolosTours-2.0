@@ -41,7 +41,7 @@ const Tours = ({ cardEfect, changedCard }) => {
       .then((downloadURL) => {
         window.open(downloadURL, "_blank");
       })
-      .catch((error) =>{
+      .catch((error) => {
         console.error(error);
       });
   }
