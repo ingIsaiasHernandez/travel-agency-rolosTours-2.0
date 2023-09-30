@@ -25,7 +25,7 @@ const Stories = () => {
           <div className="story-bg">
             <div className="story">
               <img
-                src="img/story-img-1.jpg"
+                src="img/story-img-1.png"
                 alt="Customer image"
                 className="story-image"
               />
