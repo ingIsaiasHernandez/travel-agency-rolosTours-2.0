@@ -7,12 +7,12 @@ const Header = () => {
         <div className="header-text">
           <h1 className="heading">Revolucionando el turismo</h1>
           <p className="header-paragraph">
-            "Viajar te deja sin palabras; y luego te convierte en un
-             cuentista"
+            &ldquo;Viajar te deja sin palabras; y luego te convierte en un
+             cuentista&rdquo;
           </p>
         </div>
         <img
-          src="/public/img/air-balloon.png"
+          src="img/air-balloon.png"
           alt="Header Image"
           className="header-image"
         />

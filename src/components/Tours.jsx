@@ -8,9 +8,8 @@ import { getDownloadURL, getStorage, ref } from "firebase/storage";
 
 const storage = getStorage();
 
-import PropTypes from "prop-types";
 
-const Tours = ({ cardEffect }) => {
+const Tours = () => {
   const { id } = useParams();
   const [tours, setTours] = useState([]);
 
@@ -52,7 +51,7 @@ const Tours = ({ cardEffect }) => {
         <div className="cards-wrapper">
           {Array.isArray(tours) &&
             tours.map((tour, id) => (
-              <div key={id} className={`card ${cardEffect ? "change" : ""}`}>
+              <div key={id} className={`card`}>
                 <div className={`front-side`}>
                   <img
                     src={tour.imageUrl}
@@ -90,10 +89,6 @@ const Tours = ({ cardEffect }) => {
       </section>
     </>
   );
-};
-
-Tours.propTypes = {
-  cardEffect: PropTypes.bool.isRequired,
 };
 
 
