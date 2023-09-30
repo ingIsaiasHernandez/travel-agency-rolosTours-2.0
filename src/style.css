@@ -166,7 +166,7 @@ html {
   width: 100%;
   height: calc(100vh - 7rem);
   background: linear-gradient(rgba(18, 113, 255, 0.5), rgba(18, 113, 255, 0.3)),
-    url('img/header-bg.jpg') center no-repeat;
+    url('../public/img/header-bg.jpg') center no-repeat;
   background-size: cover;
   position: relative;
   perspective: 100rem;
