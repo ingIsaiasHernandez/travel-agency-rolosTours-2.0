@@ -602,18 +602,37 @@ html {
   margin-left: 1rem;
 }
 
-.story-btn{
-  margin: auto 3rem;
-  padding: 1.5rem 4rem;
+.story-face-btn{
+  margin: 2rem 3rem;
+  padding: 1rem 3rem;
   background-color: rgb(24, 119, 242);
   border-radius: 4rem;
-  font-size: 3rem;
+  font-size: 2.5rem;
 }
 
-.story-btn a{
-  color: white;
- text-decoration: none;
+.story-insta-btn{
+  margin: 2rem 3rem;
+  padding: 1rem 3rem;
+  background-color: rgb(235, 2, 131);
+  border-radius: 4rem;
+  font-size: 2.5rem;
 }
+
+.story-face-btn a{
+  color: white;
+  text-decoration: none;
+}
+
+.story-insta-btn a{
+  color: white;
+  text-decoration: none;
+}
+
+
+
+
+
+
 /* End of Stories */
 
 

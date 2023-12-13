@@ -1,6 +1,10 @@
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 
+import { FaFacebook } from "react-icons/fa";
+import { FaInstagramSquare } from "react-icons/fa";
+
+
 const Stories = () => {
 
   const { id } = useParams();
@@ -80,18 +84,22 @@ const Stories = () => {
 
           <div className="story-bg">
             <div className="story center">
-              <img
+              {/* <img
               
                 src="img/facebook.png"
                 alt="Customer image"
                 className="story-image"
-              />
+              /> */}
               <div className="story-text center">
                 <h1 className="story-heading" style={{textAlign: "center"}}>
                   ¡Sumérjete en Rolo Tours!
 
-                  <button className="story-btn"><a href="https://www.facebook.com/LOSROLOTOURS">
-                    Click aquí 👇
+                  <button className="story-face-btn"><a href="https://www.facebook.com/LOSROLOTOURS">
+                    Facebook <FaFacebook style={{color: "white", margin: "0.5"}} />
+                  </a></button>
+                  <button className="story-insta-btn"><a href="https://www.instagram.com/rolo.tours">
+                    Instagram <FaInstagramSquare style={{color: "white", margin: "0.5"}} />
+
                   </a></button>
                 </h1>
               </div>
