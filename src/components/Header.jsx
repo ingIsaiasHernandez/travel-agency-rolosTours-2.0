@@ -5,10 +5,9 @@ const Header = () => {
         <>
       <header className="header center" id="home">
         <div className="header-text">
-          <h1 className="heading">Revolucionando el turismo</h1>
+          <h1 className="heading">Aventuras inolvidables</h1>
           <p className="header-paragraph">
-            &ldquo;Viajar te deja sin palabras; y luego te convierte en un
-             cuentista&rdquo;
+            &ldquo;Viva la experencia; vive la vida&rdquo;
           </p>
         </div>
         <img

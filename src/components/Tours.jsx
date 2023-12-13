@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import { db } from "../firebase";
 
 import { FaFilePdf } from "react-icons/fa";
+import { IoLogoWhatsapp } from "react-icons/io";
+
 import { getDownloadURL, getStorage, ref } from "firebase/storage";
 
 const storage = getStorage();
@@ -58,31 +60,23 @@ const Tours = () => {
                     alt={`La imagen de ${tour.title}`}
                     className="card-image"
                   />
-                  <h1 className="tour-name">{tour.title}</h1>
-                  <h1 className="tour-name-subtitle">
+                  <h1 className="tour-name center">{tour.title}</h1>
+                  <h1 className="tour-name-subtitle center">
                     fecha: {tour.createdAt.toDate().toLocaleDateString()}
                   </h1>
-                  <button
-                    className="navigation-button left"
-                    onClick={() => downloadDocument(tour.documentUrl)}
-                  >
-                    Detalles del viaje <FaFilePdf style={{ color: "white" }} />
-                  </button>
+
+                  <div className="items-tour">
+                    <button
+                      className="navigation-button "
+                      onClick={() => downloadDocument(tour.documentUrl)}
+                    >
+                      Detalles del viaje <FaFilePdf style={{ color: "white" }} />
+                    </button>
+                      
+                      <a style={{margin: "auto"}} href="https://wa.me/523334610391"><IoLogoWhatsapp className="icon-tour" /></a>
+
+                  </div>
                 </div>
-                {/* <div className={`back-side center`}>
-                  <button className="navigation-button" onClick={changedCard}>
-                    &lt;&lt; Regresar
-                  </button>
-                  <h3 className="tour-price"></h3>
-                  <button className="card-button-pdf">
-                    <a href="../pdfs/RUTADIADEMUERTOS.pdf">Descargar PDF</a>
-                  </button>
-                  <button className="card-button-whats">
-                    <a href="https://api.whatsapp.com/send?phone=+523334610391&text=Hola,%20me%20interesa%20el%20paquete%20'ruta%20día%20de%20muertos'">
-                      Whatsapp
-                    </a>
-                  </button>
-                </div> */}
               </div>
             ))}
         </div>

@@ -11,13 +11,13 @@ const Stories = () => {
       section.scrollIntoView();
     }
   }, [id]);
-  
+
   return (
     <>
       <section className="stories" id="stories">
         <div className="video-container">
           <video className="bg-video" autoPlay muted loop>
-            <source src="/img/video.mp4" type="video/mp4" />
+            <source src="/img/opinions.mp4" type="video/mp4" />
           </video>
         </div>
         <h1 className="about-us-heading">Opiniones</h1>
@@ -31,7 +31,7 @@ const Stories = () => {
               />
               <div className="story-text">
                 <h1 className="story-heading">Alva Robles</h1>
-                <p className="story-paragraph">
+                <p className="story-paragraph subtitle">
                   Precio accesible, divertidas dinámicas y una excelente
                   organización por parte del guía. Increíble la cantidad de
                   atractivos que se visitan en tan poco tiempo, además se otorga
@@ -51,7 +51,7 @@ const Stories = () => {
               />
               <div className="story-text">
                 <h1 className="story-heading">Alan Duran</h1>
-                <p className="story-paragraph">
+                <p className="story-paragraph subtitle">
                   Excelente servicio que ofrecen de muy buena calidad ⭐️✨100%
                   recomendado, la verdad y súper buenos precios accesibles,
                   dense la oportunidad de viajar con ellos no se arrepentirán !!
@@ -69,7 +69,7 @@ const Stories = () => {
               />
               <div className="story-text">
                 <h1 className="story-heading">Yajaira Muñoz</h1>
-                <p className="story-paragraph">
+                <p className="story-paragraph subtitle">
                   Super recomendado, fuimos al tour de las grutas, son
                   puntuales, son amables, te aclaran todas tus dudas sin duda
                   alguna los recomiendo.
@@ -79,17 +79,20 @@ const Stories = () => {
           </div>
 
           <div className="story-bg">
-            <div className="story">
+            <div className="story center">
               <img
+              
                 src="img/facebook.png"
                 alt="Customer image"
                 className="story-image"
               />
-              <div className="story-text">
-                <h1 className="story-heading">
-                  <a href="https://www.facebook.com/LOSROLOTOURS/reviews">
-                    Ver más comentarios...
-                  </a>
+              <div className="story-text center">
+                <h1 className="story-heading" style={{textAlign: "center"}}>
+                  ¡Sumérjete en Rolo Tours!
+
+                  <button className="story-btn"><a href="https://www.facebook.com/LOSROLOTOURS">
+                    Click aquí 👇
+                  </a></button>
                 </h1>
               </div>
             </div>

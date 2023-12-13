@@ -8,7 +8,7 @@ const AboutUs = () => {
             <div className="about">
               <div className="about-text">
                 <h1 className="about-heading">Valores</h1>
-                <p className="about-paragraph">
+                <p className="about-paragraph subtitle">
                   Todo nuestro personal es caracterizado por su responsabilidad,
                   amabilidad, confiabilidad, integridad, y pasión por su
                   trabajo.
@@ -21,9 +21,9 @@ const AboutUs = () => {
             <div className="about">
               <div className="about-text">
                 <h1 className="about-heading">Misión</h1>
-                <p className="about-paragraph">
-                  LLevar a nuestros clients a vivir experiencias turisticas
-                  únicas e inolvidables
+                <p className="about-paragraph subtitle">
+                  LLevar a nuestros clientes a vivir experiencias turísticas
+                  únicas y mágicas.
                 </p>
               </div>
             </div>
@@ -33,9 +33,9 @@ const AboutUs = () => {
             <div className="about">
               <div className="about-text">
                 <h1 className="about-heading">Visión</h1>
-                <p className="about-paragraph">
+                <p className="about-paragraph subtitle">
                   Convertinos en la agencia con los viajes más fascinantes en
-                  México{" "}
+                  México.
                 </p>
               </div>
             </div>

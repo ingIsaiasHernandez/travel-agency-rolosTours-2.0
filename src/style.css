@@ -2,7 +2,7 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: "Vollkorn", serif;
+  font-family: 'Oleo', cursive;
   list-style-type: none;
   text-decoration: none;
   box-sizing: border-box;
@@ -21,11 +21,22 @@ html {
   --white-color: #fff;
   --grey-color: #555;
   --light-grey-color: #777;
+  --black-color: black; 
+}
+
+.subtitle{
+  font-family: 'Sriracha', cursive;
 }
 
 .center {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.right {
+  display: flex;
+  justify-content: right;
   align-items: center;
 }
 
@@ -419,6 +430,12 @@ html {
   margin-bottom: 3rem;
 }
 
+.items-tour{
+  display: flex;
+  flex-direction: row;
+  
+}
+
 .navigation-button {
   margin: 3rem auto;
   padding: 1.5rem;
@@ -433,10 +450,22 @@ html {
   cursor: pointer;
 }
 
+.icon-tour{
+  justify-content: center;
+  justify-items: center;
+  font-size: 6rem;
+  color: green;
+  margin: auto;
+}
+
+
 /* End of Popular tours */
 
 /* Benefits */
+.list{
+  list-style-type: circle !important;
 
+}
 .benefits {
   position: relative;
   padding: 2.5rem 0 10rem 0;
@@ -459,7 +488,6 @@ html {
 }
 
 .benefit-bg {
-  background-color: rgba(238, 238, 238, 0.85);
   padding: 2.5rem;
   margin: 2rem 5rem;
   width: 91%;
@@ -479,13 +507,13 @@ html {
 .benefit-heading {
   font-size: 3rem;
   text-transform: uppercase;
-  color: var(--grey-color);
+  color: var(--black-color);
   margin-bottom: 1rem;
 }
 
 .benefit-paragraph {
   font-size: 2.2rem;
-  color: var(--light-grey-color);
+  color: var(--black-color);
 }
 
 .benefit-paragraph::first-letter {
@@ -493,9 +521,9 @@ html {
 }
 
 .benefit-video-container {
-  position: absolute;
+  position: fixed;
   top: 0;
-  left: 0;
+  left: 100;
   width: 100%;
   height: 100%;
   opacity: 0.4;
@@ -512,7 +540,7 @@ html {
 }
 
 .video-container {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -524,6 +552,7 @@ html {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  
 }
 
 .stories-wrapper {
@@ -533,7 +562,6 @@ html {
 }
 
 .story-bg {
-  background-color: rgba(238, 238, 238, 0.85);
   padding: 5rem;
   margin: 5rem;
   width: 70%;
@@ -561,19 +589,31 @@ html {
 .story-heading {
   font-size: 2.5rem;
   text-transform: uppercase;
-  color: var(--grey-color);
+  color: var(--black-color);
   margin-bottom: 1rem;
 }
 
 .story-paragraph {
   font-size: 1.8rem;
-  color: var(--light-grey-color);
+  color: var(--black-color);
 }
 
 .story-paragraph::first-letter {
   margin-left: 1rem;
 }
 
+.story-btn{
+  margin: auto 3rem;
+  padding: 1.5rem 4rem;
+  background-color: rgb(24, 119, 242);
+  border-radius: 4rem;
+  font-size: 3rem;
+}
+
+.story-btn a{
+  color: white;
+ text-decoration: none;
+}
 /* End of Stories */
 
 
@@ -793,5 +833,15 @@ html {
 
   html {
     font-size: 45%;
+  }
+
+  .story-image{
+    margin-right: 0;
+  }
+
+  .story-btn{
+    margin: 4rem 2rem;
+    padding: 0.5rem 4rem;
+    
   }
 }
