@@ -309,7 +309,8 @@ html {
 .about-us-heading {
   font-size: 8rem;
   text-align: center;
-  margin-bottom: 8rem;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
   color: var(--primary-color);
   text-shadow: 0 0.1rem 0.2rem var(--primary-color);
 }
@@ -362,7 +363,7 @@ html {
 .popular-tours-heading {
   font-size: 8rem;
   text-align: center;
-  margin-bottom: 8rem;
+  margin-bottom: 2rem;
   color: var(--primary-color);
   text-shadow: 0 0.1rem 0.2rem var(--primary-color);
 }
@@ -757,15 +758,6 @@ html {
 @media (max-width: 800px) {
 
 
-
-  .about-us-heading {
-    font-size: 5rem;
-  }
-
-  .popular-tours-heading {
-    font-size: 5rem;
-  }
-
   .contact-form {
     width: 90%;
   }
@@ -863,4 +855,14 @@ html {
     padding: 0.5rem 4rem;
     
   }
+
+  .about-us-heading {
+    font-size: 6rem;
+}
+
+.popular-tours-heading {
+  font-size: 6rem ;
+}
+
+
 }
