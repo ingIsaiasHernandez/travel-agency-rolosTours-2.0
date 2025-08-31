@@ -31,7 +31,7 @@ const Footer = () => {
           ADMIN
         </Link>
         <p className="footer-paragraph">
-          Copyright &copy; derechos reservados Rolo tours
+          Copyright &copy; {new Date().getFullYear()} derechos reservados Rolo tours
         </p>
       </footer>
     </>

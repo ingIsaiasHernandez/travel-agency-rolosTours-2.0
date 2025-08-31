@@ -1,36 +1,32 @@
-
+import { headerInformation, logoWords } from "../data.js"
 
 const Header = () => {
-    return (
-        <>
+  return (
+    <>
       <header className="header center" id="home">
         <div className="header-text">
-          <h1 className="heading">Aventuras inolvidables</h1>
+          <h1 className="heading">{headerInformation[0].title}</h1>
           <p className="header-paragraph">
-            &ldquo;Viva la experencia; vive la vida&rdquo;
+            &ldquo;{headerInformation[0].subtitle}&rdquo;
           </p>
         </div>
         <img
-          src="img/air-balloon.png"
-          alt="Header Image"
+          src={headerInformation[0].img}
+          alt={headerInformation[0].alt}
           className="header-image"
         />
         <div className="logo">
           <h1>
-            <span className="center">R</span>
-            <span className="center">o</span>
-            <span className="center">l</span>
-            <span className="center">o</span>
-            <span className="center">T</span>
-            <span className="center">o</span>
-            <span className="center">u</span>
-            <span className="center">r</span>
-            <span className="center">s</span>
+            {
+              logoWords.map(item => (
+                <span className="center" key={item.id}>{item.word}</span>
+              ))
+            }
           </h1>
         </div>
       </header>
-        </>
-    );
+    </>
+  );
 };
 
 export default Header;
